@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+/* Adjust position of notification modal */
+#notificationModal.modal[data-bs-placement="bottom"] .modal-dialog {
+  transform: translate(0, 25%);
+  margin: 0 auto;
+}
