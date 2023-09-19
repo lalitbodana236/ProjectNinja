@@ -13,6 +13,9 @@ import { ProfileDropdownComponent } from './core/profile-dropdown/profile-dropdo
 import { NotificationPanelComponent } from './core/notification-panel/notification-panel.component';
 import { SectionComponent } from './core/section/section.component';
 import { ViewComponent } from './core/view/view.component';
+import { LeftSectionComponent } from './core/section/left-section/left-section.component';
+import { RightSectionComponent } from './core/section/right-section/right-section.component';
+import { CenterSectionComponent } from './core/section/center-section/center-section.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { ViewComponent } from './core/view/view.component';
     ProfileDropdownComponent,
     NotificationPanelComponent,
     SectionComponent,
-    ViewComponent
+    ViewComponent,
+    LeftSectionComponent,
+    RightSectionComponent,
+    CenterSectionComponent
   ],
   imports: [
     BrowserModule,RouterModule,AppRoutingModule
