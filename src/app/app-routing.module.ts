@@ -6,6 +6,7 @@ import { NotificationsComponent } from './core/notifications/notifications.compo
 import { ProfileComponent } from './core/profile/profile.component';
 import { ViewComponent } from './core/view/view.component';
 import { SectionComponent } from './core/section/section.component';
+import { LoginComponent } from './core/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'view', component: ViewComponent },
   { path: 'section', component: SectionComponent },
-   { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

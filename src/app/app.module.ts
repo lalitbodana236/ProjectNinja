@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +18,7 @@ import { ViewComponent } from './core/view/view.component';
 import { LeftSectionComponent } from './core/section/left-section/left-section.component';
 import { RightSectionComponent } from './core/section/right-section/right-section.component';
 import { CenterSectionComponent } from './core/section/center-section/center-section.component';
+import { LoginComponent } from './core/login/login.component';
 
 
 @NgModule({
@@ -32,10 +35,11 @@ import { CenterSectionComponent } from './core/section/center-section/center-sec
     ViewComponent,
     LeftSectionComponent,
     RightSectionComponent,
-    CenterSectionComponent
+    CenterSectionComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule,RouterModule,AppRoutingModule
+    BrowserModule,RouterModule,AppRoutingModule,FormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
