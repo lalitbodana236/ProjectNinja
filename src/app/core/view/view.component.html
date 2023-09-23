@@ -1,79 +1,113 @@
 <p>view works!</p>
-
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Left Section -->
-            <div class="col-md-3">
-                <h4>Options</h4>
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="#" id="settings">Settings</a></li>
-                    <li class="list-group-item"><a href="#" id="viewProfile">View Profile</a></li>
-                    <li class="list-group-item"><a href="#" id="terms">Terms and Conditions</a></li>
-                </ul>
-            </div>
-
-            <!-- Right Section -->
-            <div class="col-md-9">
-                <!-- User Details Card (Initially Hidden) -->
-                <div class="card" id="userDetailsCard">
-                    <div class="card-header">
-                        User Details
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" readonly>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div>
+  <p>Browser and OS Information:</p>
+  <p>{{ browserInfo }}</p>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <!-- Left Section -->
+    <div class="col-md-3">
+      <h4>Options</h4>
+      <ul class="list-group">
+        <li class="list-group-item"><a href="#" id="settings">Settings</a></li>
+        <li class="list-group-item">
+          <a href="#" id="viewProfile">View Profile</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#" id="terms">Terms and Conditions</a>
+        </li>
+      </ul>
     </div>
 
-    <!-- Add Bootstrap JS scripts -->
-    
-    <script>
-        // JavaScript to show the user details card when an option is clicked
-        document.getElementById('settings').addEventListener('click', function () {
-            showUserDetails();
-        });
+    <!-- Right Section -->
+    <div class="col-md-9">
+      <!-- User Details Card (Initially Hidden) -->
+      <div class="card" id="userDetailsCard">
+        <div class="card-header">User Details</div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                readonly
+              />
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                readonly
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                readonly
+              />
+            </div>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                readonly
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                readonly
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        document.getElementById('viewProfile').addEventListener('click', function () {
-            showUserDetails();
-        });
+<!-- Add Bootstrap JS scripts -->
 
-        document.getElementById('terms').addEventListener('click', function () {
-            showUserDetails();
-        });
+<script>
+  // JavaScript to show the user details card when an option is clicked
+  document.getElementById("settings").addEventListener("click", function () {
+    showUserDetails();
+  });
 
-        function showUserDetails() {
-            // Fill user details (example values)
-            document.getElementById('firstName').value = 'John';
-            document.getElementById('lastName').value = 'Doe';
-            document.getElementById('email').value = 'john.doe@example.com';
-            document.getElementById('username').value = 'johndoe';
-            document.getElementById('password').value = '********'; // Displaying password in plain text is not recommended; this is just an example
+  document.getElementById("viewProfile").addEventListener("click", function () {
+    showUserDetails();
+  });
 
-            // Show the user details card
-            document.getElementById('userDetailsCard').style.display = 'block';
-        }
-    </script>
+  document.getElementById("terms").addEventListener("click", function () {
+    showUserDetails();
+  });
 
+  function showUserDetails() {
+    // Fill user details (example values)
+    document.getElementById("firstName").value = "John";
+    document.getElementById("lastName").value = "Doe";
+    document.getElementById("email").value = "john.doe@example.com";
+    document.getElementById("username").value = "johndoe";
+    document.getElementById("password").value = "********"; // Displaying password in plain text is not recommended; this is just an example
+
+    // Show the user details card
+    document.getElementById("userDetailsCard").style.display = "block";
+  }
+</script>
