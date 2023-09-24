@@ -26,7 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth.interceptor';
 import { AboutComponent } from './unauth/about/about.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,16 +44,24 @@ import { AboutComponent } from './unauth/about/about.component';
     LoginComponent,
     UnauthorisedComponent,
     RegistrationComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
-    BrowserModule,RouterModule,AppRoutingModule,FormsModule,HttpClientModule,MatTabsModule, BrowserAnimationsModule
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor, // Add your interceptor class here
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor, // Add your interceptor class here
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

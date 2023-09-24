@@ -1,0 +1,17 @@
+/* Add this to your component's CSS file (e.g., login.component.css) */
+.container {
+  margin-top: 50px;
+}
+
+.gurukul-details {
+  padding: 20px;
+  background-color: #f0f0f0; /* Example background color */
+  border-right: 1px solid #ccc; /* Add a border to separate columns */
+  min-height: 400px; /* Set a minimum height for content */
+}
+
+.login-form {
+  padding: 20px;
+  background-color: #ffffff; /* Example background color */
+  min-height: 400px; /* Set a minimum height for content */
+}

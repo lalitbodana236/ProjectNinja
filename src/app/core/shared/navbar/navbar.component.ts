@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
+import { ConstantsService } from 'src/app/constants.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +9,12 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private authService: AuthService, private router: Router) {}
-
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private constants: ConstantsService
+  ) {}
+  title = this.constants.APP_NAME;
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }

@@ -9,7 +9,7 @@ import { ConstantsService } from './constants.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ProjectNinja';
+  title = this.constants.APP_NAME;
 
   constructor(
     private authService: AuthService,
