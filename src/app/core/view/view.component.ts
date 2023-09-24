@@ -20,6 +20,8 @@ export class ViewComponent {
     private browserInfoService: BrowserInfoService,
     private constants: ConstantsService
   ) {}
+  displayProfile = false;
+  displayChangePassword = false;
 
   ngOnInit(): void {
     const userInfoStr: string | null = localStorage.getItem(
@@ -33,5 +35,28 @@ export class ViewComponent {
   // Create a function to populate user information
   populateUserDetails() {
     // Replace the example values with actual user data (you can fetch it from your backend or any other source)
+    // Show profile details form
+    this.displayProfile = true;
+
+    // Hide change password form
+    this.displayChangePassword = false;
+  }
+
+  showChangePasswordForm() {
+    // Show change password form
+    this.displayChangePassword = true;
+
+    // Hide profile details form
+    this.displayProfile = false;
+  }
+
+  currentPassword: string = '';
+  newPassword: string = '';
+  confirmPassword: string = '';
+
+  changePassword() {
+    // Implement password change logic here
+    // You can access the currentPassword, newPassword, and confirmPassword values here
+    // Check if newPassword and confirmPassword match, and perform the password change action
   }
 }

@@ -7,7 +7,7 @@
         <li class="list-group-item" (click)="populateUserDetails()">
           <a>View Profile</a>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item" (click)="showChangePasswordForm()">
           <a>Change Password</a>
         </li>
       </ul>
@@ -19,7 +19,7 @@
       <div class="card" *ngIf="userInfo" id="userDetailsCard">
         <div class="card-header">User Details</div>
         <div class="card-body">
-          <form>
+          <form *ngIf="displayProfile">
             <div class="mb-3">
               <label for="firstName" class="form-label">First Name</label>
               <input
@@ -79,6 +79,45 @@
               />
             </div>
           </form>
+
+          <form *ngIf="displayChangePassword">
+  <div class="mb-3">
+    <label for="currentPassword" class="form-label">Current Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="currentPassword"
+      name="currentPassword"
+      [(ngModel)]="currentPassword"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="newPassword" class="form-label">New Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="newPassword"
+      name="newPassword"
+      [(ngModel)]="newPassword"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="confirmPassword"
+      name="confirmPassword"
+      [(ngModel)]="confirmPassword"
+      required
+    />
+  </div>
+  <button type="button" class="btn btn-primary" (click)="changePassword()">Change Password</button>
+</form>
+
+
         </div>
       </div>
     </div>
