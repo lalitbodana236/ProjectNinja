@@ -16,17 +16,27 @@ export class AuthService {
   Browser: '',
   OS: ''
 };
-  constructor(private http: HttpClient,private browserInfoService: BrowserInfoService) { }
+  constructor(private http: HttpClient, private browserInfoService: BrowserInfoService) {
+    
+  }
   
    private authData: AuthData = {
     accessToken: '',
     expiryDuration: 0,
     refreshToken: '',
     tokenType: '',
-  };
+   };
+  
+  private userInfo : UserInfo ={
+  firstname: '',
+  lastname: '',
+  email: '',
+  username: '',
+  mobile: '',
+}
 
   private isAuthenticatedUser: boolean = false; // Use a different name for the property
-  private userInfo: any = {};  // Initialize an empty object for user info
+  //private userInfo: any = {};  // Initialize an empty object for user info
 private readonly TOKEN_KEY = 'auth_token';
 private readonly USER_IFO = 'user_info';
   // Method to set the authentication status
@@ -74,7 +84,8 @@ private readonly USER_IFO = 'user_info';
         this.authData.refreshToken = response.refreshToken;
         this.authData.tokenType = response.tokenType;
         this.userInfo = response.userInfo;
-        localStorage.setItem(this.USER_IFO, this.userInfo);
+        localStorage.setItem(this.USER_IFO, JSON.stringify(this.userInfo));
+        localStorage.setItem(this.TOKEN_KEY, JSON.stringify(this.authData));
         return response; // You can return the response if needed
       })
     );
@@ -84,16 +95,12 @@ private readonly USER_IFO = 'user_info';
     return this.authData;
   }
 
-   // Get user information
-  getUserInfo(): any {
-    return this.userInfo!=null ? this.userInfo : localStorage.getItem(this.USER_IFO);
-  }
-
+   
    // Logout the user
   logout(): void {
     // Clear user information and set isAuthenticated to false
     this.isAuthenticatedUser = false;
-    this.userInfo = {}; // Clear user info object
+   // this.userInfo = null; // Clear user info object
     localStorage.removeItem(this.USER_IFO);
   }
 
@@ -121,11 +128,51 @@ registerUser(userData: any): Observable<any> {
     return this.http.get<any[]>(`${this.serverUrlSecure}/user`,{headers});
   }
 
+  refreshToken(refreshToken: string): Observable<any> {
+    const requestBody = {
+      refreshToken: refreshToken
+    };
+     const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Add any other headers if required
+    });
+
+    return this.http.post(this.serverUrl + '/refresh', requestBody,{headers}).pipe(
+      map((response: any) => {
+        // Assuming your API response contains the necessary authentication details
+        this.authData.accessToken = response.accessToken;
+        this.authData.expiryDuration = response.expiryDuration;
+        this.authData.refreshToken = response.refreshToken;
+        this.authData.tokenType = response.tokenType;
+        this.userInfo = response.userInfo;
+        localStorage.setItem(this.USER_IFO, JSON.stringify(this.userInfo));
+        localStorage.setItem(this.TOKEN_KEY, JSON.stringify(this.authData));
+        return response; // You can return the response if needed
+      })
+    );
+  }
+
+
+
 }
+
+
+
+
+
+
 
 interface AuthData {
   accessToken: string;
   expiryDuration: number;
   refreshToken: string;
   tokenType: string;
+}
+
+interface UserInfo {
+  firstname: string;
+  lastname: string;
+  email: string;
+  username: string;
+  mobile: string;
 }

@@ -15,7 +15,7 @@ import { UnauthorisedComponent } from './unauth/unauthorised/unauthorised.compon
 const routes: Routes = [
   // All routes except 'login' will have the AuthGuard
   { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Default route
+ { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default route
   { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] },
   { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
