@@ -9,6 +9,8 @@ import { SectionComponent } from './core/section/section.component';
 import { LoginComponent } from './core/login/login.component';
 
 import { AuthGuard } from './auth.guard'; // Import the AuthGuard
+import { RegistrationComponent } from './unauth/registration/registration.component';
+import { UnauthorisedComponent } from './unauth/unauthorised/unauthorised.component';
 
 const routes: Routes = [
   // All routes except 'login' will have the AuthGuard
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'section', component: SectionComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }, // 'login' route does not have the AuthGuard
+  { path: 'register', component: RegistrationComponent }, // 'login' route does not have the AuthGuard
+  { path: 'unauth', component: UnauthorisedComponent }, // 'login' route does not have the AuthGuard
 ];
 
 

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,10 @@ import { LeftSectionComponent } from './core/section/left-section/left-section.c
 import { RightSectionComponent } from './core/section/right-section/right-section.component';
 import { CenterSectionComponent } from './core/section/center-section/center-section.component';
 import { LoginComponent } from './core/login/login.component';
+import { UnauthorisedComponent } from './unauth/unauthorised/unauthorised.component';
+import { RegistrationComponent } from './unauth/registration/registration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -36,12 +41,18 @@ import { LoginComponent } from './core/login/login.component';
     LeftSectionComponent,
     RightSectionComponent,
     CenterSectionComponent,
-    LoginComponent
+    LoginComponent,
+    UnauthorisedComponent,
+    RegistrationComponent
   ],
   imports: [
-    BrowserModule,RouterModule,AppRoutingModule,FormsModule,HttpClientModule
+    BrowserModule,RouterModule,AppRoutingModule,FormsModule,HttpClientModule,MatTabsModule, BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor, // Add your interceptor class here
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

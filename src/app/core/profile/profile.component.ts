@@ -12,6 +12,6 @@ export class ProfileComponent {
   constructor(private browserInfoService: BrowserInfoService) {}
 
   ngOnInit(): void {
-    this.browserInfo = this.browserInfoService.getBrowserInfo();
+   // this.browserInfo = this.browserInfoService.getBrowserInfo();
   }
 }

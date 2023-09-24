@@ -8,7 +8,7 @@ export class BrowserInfoService {
 
  constructor() {}
 
-  getBrowserInfo(): string {
+  getBrowserInfo():  { Browser: string; OS: string } {
     const browser = bowser.getParser(window.navigator.userAgent);
     // Get the browser name and version
     const browserName = browser.getBrowserName();
@@ -17,9 +17,16 @@ export class BrowserInfoService {
     // Get the operating system
     const osName = browser.getOSName();
 
-    const browserInfo = `Browser: ${browserName} ${browserVersion}, OS: ${osName}`;
+   // const browserInfo = `Browser: ${browserName} ${browserVersion}, OS: ${osName}`;
+
+    // Create an object with browser and OS properties
+  const browserInfo = {
+    Browser: `${browserName} ${browserVersion}`,
+    OS: osName,
+  };
   
   
   return browserInfo;
   }
+
 }
