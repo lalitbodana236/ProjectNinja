@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import { ConstantsService } from './constants.service';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'ProjectNinja';
-  private readonly USER_IFO = 'user_info';
-  private readonly TOKEN_KEY = 'auth_token';
-  constructor(private authService: AuthService, private router: Router) {
+ 
+  constructor(private authService: AuthService, private router: Router,private constants: ConstantsService) {
     this.getUserInfo();
  }
  // Get user information
   getUserInfo(): any {
-    const userInfoStr: string | null = localStorage.getItem(this.USER_IFO);
-    const authInfoStr: string | null = localStorage.getItem(this.TOKEN_KEY)
+    const userInfoStr: string | null = localStorage.getItem(this.constants.USER_IFO);
+    const authInfoStr: string | null = localStorage.getItem(this.constants.TOKEN_KEY)
     if (userInfoStr != null && authInfoStr != null) { 
       const authData = authInfoStr != null ? JSON.parse(authInfoStr) : null;
       this.authService.refreshToken(authData.refreshToken);

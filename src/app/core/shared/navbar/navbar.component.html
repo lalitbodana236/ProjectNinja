@@ -44,11 +44,13 @@
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Home"
+          *ngIf="isAuthenticated()"
         >
           <a class="nav-link" routerLink="/home">
             <i class="bi bi-house-door fs-5"></i>
           </a>
         </li>
+
         <li
           class="nav-item"
           data-bs-toggle="tooltip"
@@ -59,11 +61,24 @@
             <i class="bi bi-journal-text fs-5"></i>
           </a>
         </li>
+
+        <li
+          class="nav-item"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="login"
+          *ngIf="!isAuthenticated()"
+        >
+          <a class="nav-link" routerLink="/login">
+            <i class="bi bi-lock fs-5"></i>
+          </a>
+        </li>
         <li
           class="nav-item"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Notifications"
+          *ngIf="isAuthenticated()"
         >
           <a
             class="nav-link"
@@ -79,20 +94,11 @@
           <app-notification-panel></app-notification-panel>
         </li>
         <li
-          class="nav-item"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="login"
-        >
-          <a class="nav-link" routerLink="/login">
-            <i class="bi bi-lock fs-5"></i>
-          </a>
-        </li>
-        <li
           class="nav-item dropdown"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Profile"
+          *ngIf="isAuthenticated()"
         >
           <a
             class="nav-link dropdown-bs-toggle"
@@ -105,29 +111,38 @@
           >
             <i class="bi bi-person fs-5"></i>
           </a>
+
           <ul
             class="dropdown-menu dropdown-menu-right"
             aria-labelledby="profileDropdown"
           >
             <li>
-              <a class="dropdown-item" routerLink="/view"
+              <a
+                class="dropdown-item"
+                (click)="performOperationsAndRedirect('view')"
                 ><i class="bi bi-gear"></i> Settings</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#"
+              <a
+                class="dropdown-item"
+                (click)="performOperationsAndRedirect('logout')"
                 ><i class="bi bi-box-arrow-right"></i> Logout</a
               >
             </li>
             <div class="dropdown-divider"></div>
             <li>
-              <a class="dropdown-item" href="#"
+              <a
+                class="dropdown-item"
+                (click)="performOperationsAndRedirect('about')"
                 ><i class="bi bi-file-earmark-text"></i> Terms and Conditions</a
               >
             </li>
             <!-- Add your additional dropdown items here -->
             <li>
-              <a class="dropdown-item" href="#"
+              <a
+                class="dropdown-item"
+                (click)="performOperationsAndRedirect('help')"
                 ><i class="bi bi-question-circle"></i> Help</a
               >
             </li>
