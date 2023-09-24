@@ -1,20 +1,14 @@
-<p>view works!</p>
-<div>
-  <p>Browser and OS Information:</p>
-  <p>{{ browserInfo }}</p>
-</div>
 <div class="container mt-5">
   <div class="row">
     <!-- Left Section -->
     <div class="col-md-3">
-      <h4>Options</h4>
       <ul class="list-group">
-        <li class="list-group-item"><a href="#" id="settings">Settings</a></li>
-        <li class="list-group-item">
-          <a href="#" id="viewProfile">View Profile</a>
+        <!-- Call the populateUserDetails function when an option is clicked -->
+        <li class="list-group-item" (click)="populateUserDetails()">
+          <a>View Profile</a>
         </li>
         <li class="list-group-item">
-          <a href="#" id="terms">Terms and Conditions</a>
+          <a>Change Password</a>
         </li>
       </ul>
     </div>
@@ -22,7 +16,7 @@
     <!-- Right Section -->
     <div class="col-md-9">
       <!-- User Details Card (Initially Hidden) -->
-      <div class="card" id="userDetailsCard">
+      <div class="card" *ngIf="userInfo" id="userDetailsCard">
         <div class="card-header">User Details</div>
         <div class="card-body">
           <form>
@@ -33,46 +27,54 @@
                 class="form-control"
                 id="firstName"
                 name="firstName"
+                [value]="userInfo.firstname"
                 readonly
               />
             </div>
             <div class="mb-3">
-              <label for="lastName" class="form-label">Last Name</label>
+              <label for="lastname" class="form-label">Last Name</label>
               <input
                 type="text"
                 class="form-control"
-                id="lastName"
-                name="lastName"
+                id="lastname"
+                name="lastname"
+                [value]="userInfo.lastname"
                 readonly
               />
             </div>
+
             <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                readonly
-              />
-            </div>
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
+              <label for="username" class="form-label">User Name</label>
               <input
                 type="text"
                 class="form-control"
                 id="username"
                 name="username"
+                [value]="userInfo.username"
                 readonly
               />
             </div>
+
             <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
+              <label for="email" class="form-label">Email</label>
               <input
-                type="password"
+                type="text"
                 class="form-control"
-                id="password"
-                name="password"
+                id="email"
+                name="email"
+                [value]="userInfo.email"
+                readonly
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="mobile" class="form-label">Mobile</label>
+              <input
+                type="text"
+                class="form-control"
+                id="mobile"
+                name="mobile"
+                [value]="userInfo.mobile"
                 readonly
               />
             </div>
@@ -82,32 +84,3 @@
     </div>
   </div>
 </div>
-
-<!-- Add Bootstrap JS scripts -->
-
-<script>
-  // JavaScript to show the user details card when an option is clicked
-  document.getElementById("settings").addEventListener("click", function () {
-    showUserDetails();
-  });
-
-  document.getElementById("viewProfile").addEventListener("click", function () {
-    showUserDetails();
-  });
-
-  document.getElementById("terms").addEventListener("click", function () {
-    showUserDetails();
-  });
-
-  function showUserDetails() {
-    // Fill user details (example values)
-    document.getElementById("firstName").value = "John";
-    document.getElementById("lastName").value = "Doe";
-    document.getElementById("email").value = "john.doe@example.com";
-    document.getElementById("username").value = "johndoe";
-    document.getElementById("password").value = "********"; // Displaying password in plain text is not recommended; this is just an example
-
-    // Show the user details card
-    document.getElementById("userDetailsCard").style.display = "block";
-  }
-</script>

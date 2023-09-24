@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { BrowserInfoService } from 'src/app/browser-info.service';
 import { ConstantsService } from './constants.service';
+import { UserInfo } from 'src/app/interface/UserInfo';
+import { AuthData } from './interface/AuthData';
 
 @Injectable({
   providedIn: 'root',
@@ -170,19 +172,4 @@ export class AuthService {
         })
       );
   }
-}
-
-interface AuthData {
-  accessToken: string;
-  expiryDuration: number;
-  refreshToken: string;
-  tokenType: string;
-}
-
-interface UserInfo {
-  firstname: string;
-  lastname: string;
-  email: string;
-  username: string;
-  mobile: string;
 }
