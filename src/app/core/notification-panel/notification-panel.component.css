@@ -23,3 +23,20 @@
   max-width: 200px; /* Adjust the maximum width as needed */
 }
 
+.dropdown-menu {
+  position: absolute;
+}
+
+/* Default styling for larger screens */
+
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: absolute;
+    left: 50%; /* Position it in the center for mobile screens */
+    transform: translateX(-50%); /* Center horizontally */
+  }
+}
+
+
+
