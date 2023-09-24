@@ -25,6 +25,9 @@ import { RegistrationComponent } from './unauth/registration/registration.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth.interceptor';
 import { AboutComponent } from './unauth/about/about.component';
+import { ResetPasswordComponent } from './unauth/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './unauth/forgot-password/forgot-password.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +48,8 @@ import { AboutComponent } from './unauth/about/about.component';
     UnauthorisedComponent,
     RegistrationComponent,
     AboutComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

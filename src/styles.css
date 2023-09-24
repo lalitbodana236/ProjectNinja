@@ -33,3 +33,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
+
+/* Add this CSS in your component's CSS file or in your global styles.css */
+
+/* Normal state */
+.reset-link {
+  color: blue; /* Change the text color to blue */
+  text-decoration: underline; /* Add an underline */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  transition: color 0.2s; /* Add a smooth color transition effect */
+}
+
+/* Hover state */
+.reset-link:hover {
+  color: darkblue; /* Change the text color when hovering */
+}
+

@@ -12,6 +12,8 @@ import { AuthGuard } from './auth.guard'; // Import the AuthGuard
 import { RegistrationComponent } from './unauth/registration/registration.component';
 import { UnauthorisedComponent } from './unauth/unauthorised/unauthorised.component';
 import { AboutComponent } from './unauth/about/about.component';
+import { ResetPasswordComponent } from './unauth/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './unauth/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   // 'login' route does not have the AuthGuard
@@ -32,7 +34,14 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent,
   },
-
+  {
+    path: 'resetlink',
+    component: ResetPasswordComponent,
+  },
+  {
+    path: 'forgot',
+    component: ForgotPasswordComponent,
+  },
   // All routes except 'login' will have the AuthGuard
   {
     path: '',

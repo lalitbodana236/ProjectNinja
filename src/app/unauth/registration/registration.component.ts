@@ -4,17 +4,18 @@ import { AuthService } from 'src/app/auth.service';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent {
-formData = {
-    firstName: '',
-    lastName: '',
+  formData = {
+    firstname: '',
+    lastname: '',
     email: '',
-    password: ''
+    username: '',
+    mobile: '',
   };
 
-   constructor(private authService: AuthService) {} // Inject the AuthService
+  constructor(private authService: AuthService) {} // Inject the AuthService
 
   onSubmit() {
     // Call the AuthService's registerUser method to send registration data

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../auth.service'
+import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService,private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(
@@ -30,20 +30,24 @@ export class LoginComponent {
   }
 
   // Assuming this is within your LoginComponent
-login() {
-  // After successful authentication, set isAuthenticated to true
-  this.authService.setAuthenticated(true);
-  // Redirect the user to the desired route (e.g., dashboard)
-  this.router.navigate(['/dashboard']);
-}
-  
+  login() {
+    // After successful authentication, set isAuthenticated to true
+    this.authService.setAuthenticated(true);
+    // Redirect the user to the desired route (e.g., dashboard)
+    this.router.navigate(['/dashboard']);
+  }
+
   // Assuming this is within your LogoutComponent
-logout() {
-  // After logging out, set isAuthenticated to false
-  this.authService.setAuthenticated(false);
-  // Redirect the user to the login page
-  this.router.navigate(['/login']);
-}
+  logout() {
+    // After logging out, set isAuthenticated to false
+    this.authService.setAuthenticated(false);
+    // Redirect the user to the login page
+    this.router.navigate(['/login']);
+  }
 
-
+  resetPassword() {
+    // Implement your reset password logic here
+    // You can navigate to the reset password page
+    this.router.navigate(['/forgot']); // Replace '/reset-password' with your reset password route
+  }
 }

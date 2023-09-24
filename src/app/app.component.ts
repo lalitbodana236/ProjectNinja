@@ -28,7 +28,14 @@ export class AppComponent {
     );
     if (userInfoStr != null && authInfoStr != null) {
       const authData = authInfoStr != null ? JSON.parse(authInfoStr) : null;
-      this.authService.refreshToken(authData.refreshToken);
+      this.authService.refreshToken(authData.refreshToken).subscribe(
+        (res) => {
+          console.log('token generated');
+        },
+        (error) => {
+          console.error('Password reset failed:', error);
+        }
+      );
       this.authService.setAuthenticated(true);
       // Redirect the user to the desired route (e.g., dashboard)
       this.router.navigate(['/dashboard']);

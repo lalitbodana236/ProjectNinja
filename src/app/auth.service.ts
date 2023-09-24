@@ -10,9 +10,6 @@ import { AuthData } from './interface/AuthData';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/users';
-  private baseUrl = 'https://jsonplaceholder.typicode.com';
-
   private serverUrl = 'http://localhost:9193/api/auth';
   private serverUrlSecure = 'http://localhost:9193/api/v1/demo-controller';
   browserInfo: { Browser: string; OS: string } = {
@@ -159,11 +156,11 @@ export class AuthService {
           this.authData.expiryDuration = response.expiryDuration;
           this.authData.refreshToken = response.refreshToken;
           this.authData.tokenType = response.tokenType;
-          this.userInfo = response.userInfo;
-          localStorage.setItem(
-            this.constants.USER_IFO,
-            JSON.stringify(this.userInfo)
-          );
+          // this.userInfo = response.userInfo;
+          // localStorage.setItem(
+          // this.constants.USER_IFO,
+          // JSON.stringify(this.userInfo)
+          // );
           localStorage.setItem(
             this.constants.TOKEN_KEY,
             JSON.stringify(this.authData)
@@ -171,5 +168,30 @@ export class AuthService {
           return response; // You can return the response if needed
         })
       );
+  }
+
+  forgotPassword(email: string): Observable<any> {
+    const resetData = { email: email };
+    return this.http.post(`${this.serverUrl}/password/resetlink`, resetData);
+  }
+
+  resetPassword(
+    email: string,
+    newPassword: string,
+    confirmPassword: string,
+    token: string
+  ): Observable<any> {
+    // Send an HTTP request to your backend to reset the password
+    // You can define your API endpoint for password reset here
+    const resetPasswordData = {
+      email: email,
+      password: newPassword,
+      confirmPassword: confirmPassword,
+      token: token,
+    };
+    return this.http.post(
+      `${this.serverUrl}/password/reset?` + token,
+      resetPasswordData
+    );
   }
 }
