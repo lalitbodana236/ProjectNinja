@@ -11,25 +11,73 @@ import { LoginComponent } from './core/login/login.component';
 import { AuthGuard } from './auth.guard'; // Import the AuthGuard
 import { RegistrationComponent } from './unauth/registration/registration.component';
 import { UnauthorisedComponent } from './unauth/unauthorised/unauthorised.component';
+import { AboutComponent } from './unauth/about/about.component';
 
 const routes: Routes = [
-  // All routes except 'login' will have the AuthGuard
-  { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard] },
- { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default route
-  { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] },
-  { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'view', component: ViewComponent, canActivate: [AuthGuard] },
-  { path: 'section', component: SectionComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }, // 'login' route does not have the AuthGuard
-  { path: 'register', component: RegistrationComponent }, // 'login' route does not have the AuthGuard
-  { path: 'unauth', component: UnauthorisedComponent }, // 'login' route does not have the AuthGuard
-];
+  // 'login' route does not have the AuthGuard
 
+  {
+    path: 'register',
+    component: RegistrationComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'unauth',
+    component: UnauthorisedComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+
+  // All routes except 'login' will have the AuthGuard
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  }, // Default route
+  {
+    path: 'dashboard',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'blog',
+    component: BlogComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'notifications',
+    component: NotificationsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'view',
+    component: ViewComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'section',
+    component: SectionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -24,6 +24,7 @@ import { UnauthorisedComponent } from './unauth/unauthorised/unauthorised.compon
 import { RegistrationComponent } from './unauth/registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth.interceptor';
+import { AboutComponent } from './unauth/about/about.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AuthInterceptor } from './auth.interceptor';
     CenterSectionComponent,
     LoginComponent,
     UnauthorisedComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,RouterModule,AppRoutingModule,FormsModule,HttpClientModule,MatTabsModule, BrowserAnimationsModule

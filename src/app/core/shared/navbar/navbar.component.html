@@ -43,6 +43,17 @@
           class="nav-item"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
+          title="login"
+          *ngIf="!isAuthenticated()"
+        >
+          <a class="nav-link" routerLink="/login">
+            <i class="bi bi-lock fs-5"></i>
+          </a>
+        </li>
+        <li
+          class="nav-item"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
           title="Home"
           *ngIf="isAuthenticated()"
         >
@@ -56,23 +67,13 @@
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Blog"
+          *ngIf="isAuthenticated()"
         >
           <a class="nav-link" href="#">
             <i class="bi bi-journal-text fs-5"></i>
           </a>
         </li>
 
-        <li
-          class="nav-item"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="login"
-          *ngIf="!isAuthenticated()"
-        >
-          <a class="nav-link" routerLink="/login">
-            <i class="bi bi-lock fs-5"></i>
-          </a>
-        </li>
         <li
           class="nav-item"
           data-bs-toggle="tooltip"

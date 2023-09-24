@@ -6,29 +6,37 @@ import { ConstantsService } from './constants.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'ProjectNinja';
- 
-  constructor(private authService: AuthService, private router: Router,private constants: ConstantsService) {
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private constants: ConstantsService
+  ) {
     this.getUserInfo();
- }
- // Get user information
+  }
+  // Get user information
   getUserInfo(): any {
-    const userInfoStr: string | null = localStorage.getItem(this.constants.USER_IFO);
-    const authInfoStr: string | null = localStorage.getItem(this.constants.TOKEN_KEY)
-    if (userInfoStr != null && authInfoStr != null) { 
+    const userInfoStr: string | null = localStorage.getItem(
+      this.constants.USER_IFO
+    );
+    const authInfoStr: string | null = localStorage.getItem(
+      this.constants.TOKEN_KEY
+    );
+    if (userInfoStr != null && authInfoStr != null) {
       const authData = authInfoStr != null ? JSON.parse(authInfoStr) : null;
       this.authService.refreshToken(authData.refreshToken);
-       this.authService.setAuthenticated(true);
-  // Redirect the user to the desired route (e.g., dashboard)
-  this.router.navigate(['/dashboard']);
-    return JSON.parse(userInfoStr) ;
+      this.authService.setAuthenticated(true);
+      // Redirect the user to the desired route (e.g., dashboard)
+      this.router.navigate(['/dashboard']);
+      return JSON.parse(userInfoStr);
     } else {
-       this.authService.setAuthenticated(false);
-  // Redirect the user to the login page
-  this.router.navigate(['/login']);
-  }
+      this.authService.setAuthenticated(false);
+      // Redirect the user to the login page
+      //this.router.navigate(['/login']);
+    }
   }
 }
