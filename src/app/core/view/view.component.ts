@@ -24,6 +24,7 @@ export class ViewComponent {
   displayChangePassword = false;
 
   ngOnInit(): void {
+    this.displayProfile = true;
     const userInfoStr: string | null = localStorage.getItem(
       this.constants.USER_IFO
     );
