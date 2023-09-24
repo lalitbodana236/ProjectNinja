@@ -1,0 +1,25 @@
+/* Add this CSS to your stylesheet */
+.notification-scroll {
+  max-height: 250px; /* Set a maximum height for the scrollable container */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+
+/* notification.component.css */
+.notification-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+
+
+.notification-message-wrap {
+  /* Ensure text wraps within the container */
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  max-width: 200px; /* Adjust the maximum width as needed */
+}
+
