@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- Sidebar with student options -->
+      <div class="student-sidebar">
+        <ul>
+          <li><a routerLink="/dashboard/profile">Profile</a></li>
+          <li><a routerLink="/dashboard/courses">Courses</a></li>
+          <li><a routerLink="/dashboard/exams">Exams</a></li>
+          <li><a routerLink="/dashboard/results">Results</a></li>
+          <li><a routerLink="/dashboard/notifications">Notifications</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <!-- Main content area -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

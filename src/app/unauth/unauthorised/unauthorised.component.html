@@ -1,15 +1,30 @@
-<p>unauthorised works!</p>
-<div class="container mt-5">
+<div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h1>Welcome to Your App</h1>
-      <button class="btn btn-primary" (click)="toggleRegistrationForm()">
-        Register
-      </button>
-      <button class="btn btn-success">Login</button>
+    <!-- Left Column (Gurukul Details) -->
+    <div class="col-md-6">
+      <div class="gurukul-details">
+        <h2>About Gurukul</h2>
+        <!-- Add Gurukul details content here -->
+      </div>
+    </div>
 
-      <!-- Registration Form -->
-      <app-registration></app-registration>
+    <!-- Right Column (Registration Form) -->
+    <div class="col-md-6">
+      <div class="button-form">
+        <h1>Welcome to Your App</h1>
+        <button
+          class="btn btn-primary"
+          (click)="toggleRegistrationForm('/register')"
+        >
+          Register
+        </button>
+        <button
+          class="btn btn-success"
+          (click)="toggleRegistrationForm('/login')"
+        >
+          Login
+        </button>
+      </div>
     </div>
   </div>
 </div>

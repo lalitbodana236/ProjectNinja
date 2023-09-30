@@ -10,7 +10,7 @@
 
     <!-- Right Column (Registration Form) -->
     <div class="col-md-6">
-      <div class="registration-form">
+      <div class="button-form">
         <h2>Register for Gurukul</h2>
         <form (submit)="onSubmit()">
           <!-- Registration form content here -->
@@ -65,6 +65,17 @@
               id="mobile"
               name="mobile"
               [(ngModel)]="formData.mobile"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              [(ngModel)]="formData.password"
               class="form-control"
               required
             />

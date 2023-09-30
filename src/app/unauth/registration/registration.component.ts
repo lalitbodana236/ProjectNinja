@@ -13,6 +13,7 @@ export class RegistrationComponent {
     email: '',
     username: '',
     mobile: '',
+    password: '',
   };
 
   constructor(private authService: AuthService) {} // Inject the AuthService
