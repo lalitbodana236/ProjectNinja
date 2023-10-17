@@ -10,7 +10,7 @@ import { AuthData } from './interface/AuthData';
   providedIn: 'root',
 })
 export class AuthService {
-  private serverUrl = 'http://localhost:9193/api/auth';
+  private serverUrl = 'http://localhost:9193/api/v1/auth';
   private serverUrlSecure = 'http://localhost:9193/api/v1/demo-controller';
   browserInfo: { Browser: string; OS: string } = {
     Browser: '',
