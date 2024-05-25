@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+     "allowJs": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -22,7 +23,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+   
+   
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

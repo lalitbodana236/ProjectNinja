@@ -1,0 +1,26 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <!-- Left Sidebar -->
+    <div class="col-md-2">
+      <!-- Content for left sidebar -->
+      <h1>Left</h1>
+    </div>
+
+    <!-- Center Section -->
+    <div class="col-md-8 position-relative border">
+      <div class="position-relative">
+        <!-- <a
+          class="btn btn-primary position-absolute bottom-1 end-0 m-3"
+          (click)="redirectToNewScreen()"
+        >
+          <i class="bi bi-plus"></i> Add Article
+        </a> -->
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="col-md-2">
+      <h1>Right</h1>
+    </div>
+  </div>
+</div>

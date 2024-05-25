@@ -157,6 +157,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 **Checklist:**
 
+-[] Ckeditor
+-[] npm install @ckeditor/ckeditor5-angular
+-[] npm install --save @ckeditor/ckeditor5-build-classic
+
+
 - [ ] Define project goals and objectives.
 - [ ] Plan the website's architecture and database schema.
 - [ ] Choose the tech stack (e.g., Angular for the frontend, Node.js for the backend, MongoDB for the database).

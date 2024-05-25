@@ -31,6 +31,9 @@ import { CoursesComponent } from './student-dashboard/courses/courses.component'
 import { ExamsComponent } from './student-dashboard/exams/exams.component';
 import { ResultsComponent } from './student-dashboard/results/results.component';
 import { ProfileComponent } from './student-dashboard/profile/profile.component';
+import { CreateArticleComponent } from './common/module/article/create-article/create-article.component';
+import { MainComponent } from './core/main/main.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,8 @@ import { ProfileComponent } from './student-dashboard/profile/profile.component'
     ExamsComponent,
     ResultsComponent,
     ProfileComponent,
+    CreateArticleComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +71,7 @@ import { ProfileComponent } from './student-dashboard/profile/profile.component'
     HttpClientModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    CKEditorModule,
   ],
   providers: [
     {

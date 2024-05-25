@@ -46,4 +46,9 @@ export class AppComponent {
       //this.router.navigate(['/login']);
     }
   }
+
+  redirectToNewScreen() {
+    // Navigate to the Add Article page
+    this.router.navigate(['/add-article']);
+  }
 }

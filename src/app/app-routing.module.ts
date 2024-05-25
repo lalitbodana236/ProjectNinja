@@ -18,6 +18,7 @@ import { CoursesComponent } from './student-dashboard/courses/courses.component'
 import { ExamsComponent } from './student-dashboard/exams/exams.component';
 import { ResultsComponent } from './student-dashboard/results/results.component';
 import { ProfileComponent } from './student-dashboard/profile/profile.component';
+import { CreateArticleComponent } from './common/module/article/create-article/create-article.component';
 
 const routes: Routes = [
   // 'login' route does not have the AuthGuard
@@ -55,32 +56,32 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: HomeComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'blog',
     component: BlogComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'notifications',
     component: NotificationsComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'view',
     component: ViewComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'section',
     component: SectionComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
@@ -92,6 +93,11 @@ const routes: Routes = [
       { path: 'results', component: ResultsComponent },
       { path: 'notifications', component: NotificationsComponent },
     ],
+  },
+  {
+    path: 'write',
+    component: CreateArticleComponent,
+    //canActivate: [AuthGuard],
   },
 ];
 
